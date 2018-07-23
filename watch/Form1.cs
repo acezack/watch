@@ -17,7 +17,8 @@ namespace watch
         static int fontSize = 40;
         static Font font = new Font("Lucinda", fontSize);
         static SolidBrush brush = new SolidBrush(Color.Goldenrod);
-
+        
+        Point position = new Point(8, 30);
         SizeF windowSize;
 
         // The notification-icon options.
@@ -100,6 +101,7 @@ namespace watch
         // Shows the options-form.
         void menuItemOptions_Click(object sender, EventArgs e)
         {
+            formOptions = new FormOptions();
             formOptions.Show();
         }
 
@@ -128,19 +130,21 @@ namespace watch
             this.Refresh();
             Size newSize = Size.Round(windowSize);
             newSize.Width += (int)20;
-            newSize.Height += (int)30;
+            newSize.Height += (int)60;
             this.Size = newSize;
 
             if (!borderHidden)
             {
                 FormBorderStyle = FormBorderStyle.None;
                 menuItemToggleShow.Text = "Show border";
+                position = new Point(8, 30);
                 SetWindowLong(this.Handle, -20, (int)GetWindowLong(this.Handle, -20) | 0x00000020);
             }
             else
             {
                 FormBorderStyle = FormBorderStyle.Sizable;
                 menuItemToggleShow.Text = "Hide border";
+                position = new Point(0, 0);
             }
         }
 
@@ -150,7 +154,7 @@ namespace watch
             e.Graphics.DrawString(DateTime.Now.ToLongTimeString(), 
                 font, 
                 brush, 
-                new Point(0, 0));
+                position);
             base.OnPaint(e);
 
             windowSize = e.Graphics.MeasureString(DateTime.Now.ToLongTimeString(), font);
@@ -173,16 +177,16 @@ namespace watch
             }
         }
 
-        // A public function to change textcolor(used in options-form).
+        // A public function to change textcolor(used in optionsform).
         public static void SetTextColor(Color newColor)
         {
             brush = new SolidBrush(newColor);
         }
 
-        // A public function to change fontsize(used in options-form).
-        public static void SetFontSize(int newFontSize)
+        // A public function to change font and fontsize(used in optionsform).
+        public static void SetFont(string newFont, int newFontSize)
         {
-            font = new Font("Lucinda", newFontSize);
+            font = new Font(newFont, newFontSize);
         }
 
         public static void ToggleShow()

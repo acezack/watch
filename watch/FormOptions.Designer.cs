@@ -36,39 +36,42 @@
             this.buttonToggleBorder = new System.Windows.Forms.Button();
             this.buttonExitProgram = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelFont = new System.Windows.Forms.Label();
+            this.comboBoxFont = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericFontSize)).BeginInit();
             this.SuspendLayout();
             // 
             // labelColor
             // 
             this.labelColor.AutoSize = true;
-            this.labelColor.Location = new System.Drawing.Point(13, 13);
+            this.labelColor.Location = new System.Drawing.Point(10, 66);
             this.labelColor.Name = "labelColor";
-            this.labelColor.Size = new System.Drawing.Size(37, 13);
-            this.labelColor.TabIndex = 0;
-            this.labelColor.Text = "Color: ";
+            this.labelColor.Size = new System.Drawing.Size(57, 13);
+            this.labelColor.TabIndex = 8;
+            this.labelColor.Text = "Fontcolor: ";
             // 
             // comboBoxColor
             // 
             this.comboBoxColor.FormattingEnabled = true;
-            this.comboBoxColor.Location = new System.Drawing.Point(77, 10);
+            this.comboBoxColor.Location = new System.Drawing.Point(75, 63);
             this.comboBoxColor.Name = "comboBoxColor";
             this.comboBoxColor.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxColor.TabIndex = 1;
+            this.comboBoxColor.TabIndex = 2;
             this.comboBoxColor.SelectedIndexChanged += new System.EventHandler(this.comboBoxColor_SelectedIndexChanged);
             // 
             // labelFontsize
             // 
             this.labelFontsize.AutoSize = true;
-            this.labelFontsize.Location = new System.Drawing.Point(12, 40);
+            this.labelFontsize.Location = new System.Drawing.Point(10, 39);
             this.labelFontsize.Name = "labelFontsize";
             this.labelFontsize.Size = new System.Drawing.Size(49, 13);
-            this.labelFontsize.TabIndex = 2;
+            this.labelFontsize.TabIndex = 7;
             this.labelFontsize.Text = "Fontsize:";
             // 
             // numericFontSize
             // 
-            this.numericFontSize.Location = new System.Drawing.Point(77, 38);
+            this.numericFontSize.Location = new System.Drawing.Point(75, 37);
             this.numericFontSize.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -76,35 +79,35 @@
             0});
             this.numericFontSize.Name = "numericFontSize";
             this.numericFontSize.Size = new System.Drawing.Size(121, 20);
-            this.numericFontSize.TabIndex = 3;
+            this.numericFontSize.TabIndex = 1;
             this.numericFontSize.ValueChanged += new System.EventHandler(this.numericFontSize_ValueChanged);
             // 
             // buttonCloseSettings
             // 
-            this.buttonCloseSettings.Location = new System.Drawing.Point(110, 218);
+            this.buttonCloseSettings.Location = new System.Drawing.Point(110, 197);
             this.buttonCloseSettings.Name = "buttonCloseSettings";
             this.buttonCloseSettings.Size = new System.Drawing.Size(91, 32);
-            this.buttonCloseSettings.TabIndex = 4;
+            this.buttonCloseSettings.TabIndex = 5;
             this.buttonCloseSettings.Text = "Close options";
             this.buttonCloseSettings.UseVisualStyleBackColor = true;
             this.buttonCloseSettings.Click += new System.EventHandler(this.buttonCloseSettings_Click);
             // 
             // buttonToggleBorder
             // 
-            this.buttonToggleBorder.Location = new System.Drawing.Point(12, 180);
+            this.buttonToggleBorder.Location = new System.Drawing.Point(13, 159);
             this.buttonToggleBorder.Name = "buttonToggleBorder";
             this.buttonToggleBorder.Size = new System.Drawing.Size(91, 32);
-            this.buttonToggleBorder.TabIndex = 5;
+            this.buttonToggleBorder.TabIndex = 3;
             this.buttonToggleBorder.Text = "Toggle border";
             this.buttonToggleBorder.UseVisualStyleBackColor = true;
             this.buttonToggleBorder.Click += new System.EventHandler(this.buttonToggleBorder_Click);
             // 
             // buttonExitProgram
             // 
-            this.buttonExitProgram.Location = new System.Drawing.Point(110, 180);
+            this.buttonExitProgram.Location = new System.Drawing.Point(110, 159);
             this.buttonExitProgram.Name = "buttonExitProgram";
             this.buttonExitProgram.Size = new System.Drawing.Size(91, 32);
-            this.buttonExitProgram.TabIndex = 6;
+            this.buttonExitProgram.TabIndex = 4;
             this.buttonExitProgram.Text = "Exit program";
             this.buttonExitProgram.UseVisualStyleBackColor = true;
             this.buttonExitProgram.Click += new System.EventHandler(this.buttonExitProgram_Click);
@@ -113,17 +116,48 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 212);
+            this.label1.Location = new System.Drawing.Point(18, 190);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 12);
-            this.label1.TabIndex = 7;
+            this.label1.TabIndex = 9;
             this.label1.Text = "To enable moving.";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(111, 228);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 36);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Settings can be \r\nopened from \r\nnotification in taskbar.";
+            // 
+            // labelFont
+            // 
+            this.labelFont.AutoSize = true;
+            this.labelFont.Location = new System.Drawing.Point(10, 13);
+            this.labelFont.Name = "labelFont";
+            this.labelFont.Size = new System.Drawing.Size(31, 13);
+            this.labelFont.TabIndex = 6;
+            this.labelFont.Text = "Font:";
+            // 
+            // comboBoxFont
+            // 
+            this.comboBoxFont.FormattingEnabled = true;
+            this.comboBoxFont.Location = new System.Drawing.Point(75, 10);
+            this.comboBoxFont.Name = "comboBoxFont";
+            this.comboBoxFont.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxFont.TabIndex = 0;
+            this.comboBoxFont.SelectedIndexChanged += new System.EventHandler(this.comboBoxFont_SelectedIndexChanged);
             // 
             // FormOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(213, 262);
+            this.ClientSize = new System.Drawing.Size(213, 272);
+            this.Controls.Add(this.comboBoxFont);
+            this.Controls.Add(this.labelFont);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonExitProgram);
             this.Controls.Add(this.buttonToggleBorder);
@@ -133,13 +167,14 @@
             this.Controls.Add(this.comboBoxColor);
             this.Controls.Add(this.labelColor);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(229, 300);
+            this.MaximumSize = new System.Drawing.Size(229, 310);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(229, 300);
+            this.MinimumSize = new System.Drawing.Size(229, 310);
             this.Name = "FormOptions";
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Options";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormOptions_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.numericFontSize)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -156,5 +191,8 @@
         private System.Windows.Forms.Button buttonToggleBorder;
         private System.Windows.Forms.Button buttonExitProgram;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelFont;
+        private System.Windows.Forms.ComboBox comboBoxFont;
     }
 }
