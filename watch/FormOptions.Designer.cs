@@ -39,6 +39,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.labelFont = new System.Windows.Forms.Label();
             this.comboBoxFont = new System.Windows.Forms.ComboBox();
+            this.radioButtonLongTime = new System.Windows.Forms.RadioButton();
+            this.radioButtonShortTime = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericFontSize)).BeginInit();
             this.SuspendLayout();
             // 
@@ -150,11 +153,47 @@
             this.comboBoxFont.TabIndex = 0;
             this.comboBoxFont.SelectedIndexChanged += new System.EventHandler(this.comboBoxFont_SelectedIndexChanged);
             // 
+            // radioButtonLongTime
+            // 
+            this.radioButtonLongTime.AutoSize = true;
+            this.radioButtonLongTime.Location = new System.Drawing.Point(81, 90);
+            this.radioButtonLongTime.Name = "radioButtonLongTime";
+            this.radioButtonLongTime.Size = new System.Drawing.Size(49, 17);
+            this.radioButtonLongTime.TabIndex = 11;
+            this.radioButtonLongTime.TabStop = true;
+            this.radioButtonLongTime.Text = "Long";
+            this.radioButtonLongTime.UseVisualStyleBackColor = true;
+            this.radioButtonLongTime.CheckedChanged += new System.EventHandler(this.radioButtonLongTime_CheckedChanged);
+            // 
+            // radioButtonShortTime
+            // 
+            this.radioButtonShortTime.AutoSize = true;
+            this.radioButtonShortTime.Location = new System.Drawing.Point(136, 90);
+            this.radioButtonShortTime.Name = "radioButtonShortTime";
+            this.radioButtonShortTime.Size = new System.Drawing.Size(50, 17);
+            this.radioButtonShortTime.TabIndex = 12;
+            this.radioButtonShortTime.TabStop = true;
+            this.radioButtonShortTime.Text = "Short";
+            this.radioButtonShortTime.UseVisualStyleBackColor = true;
+            this.radioButtonShortTime.CheckedChanged += new System.EventHandler(this.radioButtonShortTime_CheckedChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 92);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Timeformat:";
+            // 
             // FormOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(213, 272);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.radioButtonShortTime);
+            this.Controls.Add(this.radioButtonLongTime);
             this.Controls.Add(this.comboBoxFont);
             this.Controls.Add(this.labelFont);
             this.Controls.Add(this.label2);
@@ -194,5 +233,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelFont;
         private System.Windows.Forms.ComboBox comboBoxFont;
+        private System.Windows.Forms.RadioButton radioButtonLongTime;
+        private System.Windows.Forms.RadioButton radioButtonShortTime;
+        private System.Windows.Forms.Label label3;
     }
 }

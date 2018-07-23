@@ -17,6 +17,9 @@ namespace watch
         static int fontSize = 40;
         static Font font = new Font("Lucinda", fontSize);
         static SolidBrush brush = new SolidBrush(Color.Goldenrod);
+        static int timeFormat = 0;
+        // 0 = Long
+        // 1 = Short
         
         Point position = new Point(8, 30);
         SizeF windowSize;
@@ -151,13 +154,27 @@ namespace watch
         // Draws the time.
         protected override void OnPaint(PaintEventArgs e)
         {
-            e.Graphics.DrawString(DateTime.Now.ToLongTimeString(), 
-                font, 
-                brush, 
+            if (timeFormat == 0)
+            {
+                e.Graphics.DrawString(DateTime.Now.ToLongTimeString(),
+                font,
+                brush,
                 position);
-            base.OnPaint(e);
+                base.OnPaint(e);
 
-            windowSize = e.Graphics.MeasureString(DateTime.Now.ToLongTimeString(), font);
+                windowSize = e.Graphics.MeasureString(DateTime.Now.ToLongTimeString(), font);
+            }
+            else
+            {
+                e.Graphics.DrawString(DateTime.Now.ToShortTimeString(),
+                font,
+                brush,
+                position);
+                base.OnPaint(e);
+
+                windowSize = e.Graphics.MeasureString(DateTime.Now.ToShortTimeString(), font);
+            }
+            
         }
 
         /* 
@@ -187,6 +204,13 @@ namespace watch
         public static void SetFont(string newFont, int newFontSize)
         {
             font = new Font(newFont, newFontSize);
+        }
+
+        public static void SetTimeFormat(int newTimeFormat)
+        {
+            // 0 = Long
+            // 1 = Short
+            timeFormat = newTimeFormat;
         }
 
         public static void ToggleShow()

@@ -36,10 +36,14 @@ namespace watch
                 }
                 
             }
+            // Starting font
             comboBoxFont.SelectedItem = "Mangal";
 
-            // Starting font-color.
+            // Starting fontcolor.
             comboBoxColor.SelectedIndex = 50;
+
+            // Starting timeformat
+            radioButtonLongTime.Checked = true;
         }
 
         // Calls the SetFont from mainform on indexChanged.
@@ -82,6 +86,30 @@ namespace watch
         private void FormOptions_FormClosing(object sender, FormClosingEventArgs e)
         {
             Hide();
+        }
+
+        private void radioButtonLongTime_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonLongTime.Checked)
+            {
+                Form1.SetTimeFormat(0);
+            }
+            else
+            {
+                Form1.SetTimeFormat(1);
+            }
+        }
+
+        private void radioButtonShortTime_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonLongTime.Checked)
+            {
+                Form1.SetTimeFormat(0);
+            }
+            else
+            {
+                Form1.SetTimeFormat(1);
+            }
         }
     }
 }
