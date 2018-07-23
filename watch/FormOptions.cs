@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace watch
@@ -13,18 +14,17 @@ namespace watch
             // Starting font-value
             numericFontSize.Value = 40;
 
-            // Gets all the known colors and adds the to the selector.
-            KnownColor[] colors = (KnownColor[])Enum.GetValues(typeof(KnownColor));
-            foreach (KnownColor knownColor in colors)
+            Type colorType = typeof(System.Drawing.Color);
+            // Adds the colors to the selector.
+            // We take only static property to avoid properties like Name, IsSystemColor ...
+            PropertyInfo[] propInfos = colorType.GetProperties(BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Public);
+            foreach (PropertyInfo propInfo in propInfos)
             {
-                comboBoxColor.Items.AddRange(new object[] 
-                {
-                    knownColor
-                });
+                comboBoxColor.Items.AddRange(new object[] {propInfo.Name});
             }
 
             // Starting font-color.
-            comboBoxColor.SelectedIndex = 76;
+            comboBoxColor.SelectedIndex = 50;
         }
 
         // Calls the SetTextColor from mainforn on indexChanged.
