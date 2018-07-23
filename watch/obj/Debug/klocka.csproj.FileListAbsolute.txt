@@ -1,0 +1,10 @@
+c:\users\adde\documents\visual studio 2013\Projects\klocka\klocka\bin\Debug\klocka.exe.config
+c:\users\adde\documents\visual studio 2013\Projects\klocka\klocka\bin\Debug\klocka.exe
+c:\users\adde\documents\visual studio 2013\Projects\klocka\klocka\bin\Debug\klocka.pdb
+c:\users\adde\documents\visual studio 2013\Projects\klocka\klocka\obj\Debug\klocka.csprojResolveAssemblyReference.cache
+c:\users\adde\documents\visual studio 2013\Projects\klocka\klocka\obj\Debug\klocka.Form1.resources
+c:\users\adde\documents\visual studio 2013\Projects\klocka\klocka\obj\Debug\klocka.Properties.Resources.resources
+c:\users\adde\documents\visual studio 2013\Projects\klocka\klocka\obj\Debug\klocka.csproj.GenerateResource.Cache
+c:\users\adde\documents\visual studio 2013\Projects\klocka\klocka\obj\Debug\klocka.exe
+c:\users\adde\documents\visual studio 2013\Projects\klocka\klocka\obj\Debug\klocka.pdb
+C:\Users\Adde\documents\visual studio 2013\Projects\klocka\klocka\obj\Debug\klocka.FormOptions.resources

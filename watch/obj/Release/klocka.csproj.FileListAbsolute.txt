@@ -1,0 +1,9 @@
+C:\Users\Adde\Documents\Visual Studio 2013\Projects\klocka\klocka\bin\Release\klocka.exe.config
+C:\Users\Adde\Documents\Visual Studio 2013\Projects\klocka\klocka\bin\Release\klocka.exe
+C:\Users\Adde\Documents\Visual Studio 2013\Projects\klocka\klocka\bin\Release\klocka.pdb
+C:\Users\Adde\Documents\Visual Studio 2013\Projects\klocka\klocka\obj\Release\klocka.Form1.resources
+C:\Users\Adde\Documents\Visual Studio 2013\Projects\klocka\klocka\obj\Release\klocka.FormOptions.resources
+C:\Users\Adde\Documents\Visual Studio 2013\Projects\klocka\klocka\obj\Release\klocka.Properties.Resources.resources
+C:\Users\Adde\Documents\Visual Studio 2013\Projects\klocka\klocka\obj\Release\klocka.csproj.GenerateResource.Cache
+C:\Users\Adde\Documents\Visual Studio 2013\Projects\klocka\klocka\obj\Release\klocka.exe
+C:\Users\Adde\Documents\Visual Studio 2013\Projects\klocka\klocka\obj\Release\klocka.pdb
