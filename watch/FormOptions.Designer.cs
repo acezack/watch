@@ -69,7 +69,7 @@
             this.labelFontsize.Location = new System.Drawing.Point(10, 39);
             this.labelFontsize.Name = "labelFontsize";
             this.labelFontsize.Size = new System.Drawing.Size(49, 13);
-            this.labelFontsize.TabIndex = 7;
+            this.labelFontsize.TabIndex = 156;
             this.labelFontsize.Text = "Fontsize:";
             // 
             // numericFontSize
@@ -90,7 +90,7 @@
             this.buttonCloseSettings.Location = new System.Drawing.Point(110, 197);
             this.buttonCloseSettings.Name = "buttonCloseSettings";
             this.buttonCloseSettings.Size = new System.Drawing.Size(91, 32);
-            this.buttonCloseSettings.TabIndex = 5;
+            this.buttonCloseSettings.TabIndex = 7;
             this.buttonCloseSettings.Text = "Close options";
             this.buttonCloseSettings.UseVisualStyleBackColor = true;
             this.buttonCloseSettings.Click += new System.EventHandler(this.buttonCloseSettings_Click);
@@ -100,7 +100,7 @@
             this.buttonToggleBorder.Location = new System.Drawing.Point(13, 159);
             this.buttonToggleBorder.Name = "buttonToggleBorder";
             this.buttonToggleBorder.Size = new System.Drawing.Size(91, 32);
-            this.buttonToggleBorder.TabIndex = 3;
+            this.buttonToggleBorder.TabIndex = 5;
             this.buttonToggleBorder.Text = "Toggle border";
             this.buttonToggleBorder.UseVisualStyleBackColor = true;
             this.buttonToggleBorder.Click += new System.EventHandler(this.buttonToggleBorder_Click);
@@ -110,7 +110,7 @@
             this.buttonExitProgram.Location = new System.Drawing.Point(110, 159);
             this.buttonExitProgram.Name = "buttonExitProgram";
             this.buttonExitProgram.Size = new System.Drawing.Size(91, 32);
-            this.buttonExitProgram.TabIndex = 4;
+            this.buttonExitProgram.TabIndex = 6;
             this.buttonExitProgram.Text = "Exit program";
             this.buttonExitProgram.UseVisualStyleBackColor = true;
             this.buttonExitProgram.Click += new System.EventHandler(this.buttonExitProgram_Click);
@@ -141,7 +141,7 @@
             this.labelFont.Location = new System.Drawing.Point(10, 13);
             this.labelFont.Name = "labelFont";
             this.labelFont.Size = new System.Drawing.Size(31, 13);
-            this.labelFont.TabIndex = 6;
+            this.labelFont.TabIndex = 124;
             this.labelFont.Text = "Font:";
             // 
             // comboBoxFont
@@ -159,7 +159,7 @@
             this.radioButtonLongTime.Location = new System.Drawing.Point(81, 90);
             this.radioButtonLongTime.Name = "radioButtonLongTime";
             this.radioButtonLongTime.Size = new System.Drawing.Size(49, 17);
-            this.radioButtonLongTime.TabIndex = 11;
+            this.radioButtonLongTime.TabIndex = 3;
             this.radioButtonLongTime.TabStop = true;
             this.radioButtonLongTime.Text = "Long";
             this.radioButtonLongTime.UseVisualStyleBackColor = true;
@@ -171,7 +171,7 @@
             this.radioButtonShortTime.Location = new System.Drawing.Point(136, 90);
             this.radioButtonShortTime.Name = "radioButtonShortTime";
             this.radioButtonShortTime.Size = new System.Drawing.Size(50, 17);
-            this.radioButtonShortTime.TabIndex = 12;
+            this.radioButtonShortTime.TabIndex = 4;
             this.radioButtonShortTime.TabStop = true;
             this.radioButtonShortTime.Text = "Short";
             this.radioButtonShortTime.UseVisualStyleBackColor = true;
