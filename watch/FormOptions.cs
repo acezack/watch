@@ -12,10 +12,10 @@ namespace watch
         public FormOptions()
         {
             InitializeComponent();
-            
-            Type colorType = typeof(System.Drawing.Color);
+
             // Adds the colors to the selector.
             // We take only static property to avoid properties like Name, IsSystemColor.
+            Type colorType = typeof(System.Drawing.Color);
             PropertyInfo[] propInfos = colorType.GetProperties(BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Public);
             for (int index = 0; index < propInfos.Length; index++)
             {
@@ -26,6 +26,7 @@ namespace watch
                 }
             }
 
+            // Finds all installed fonts on your PC and adds them to the selector.
             InstalledFontCollection fontCollection = new InstalledFontCollection();
             FontFamily[] fontFamilies = fontCollection.Families;
             List<string> fonts = new List<string>();

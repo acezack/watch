@@ -236,6 +236,7 @@ namespace watch
             }
         }
 
+        // Saves all your settings upon closing
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Properties.Settings.Default.fontSize = fontSize;
