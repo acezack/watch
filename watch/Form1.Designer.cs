@@ -48,7 +48,9 @@
             this.ClientSize = new System.Drawing.Size(349, 136);
             this.ControlBox = false;
             this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DataBindings.Add(new System.Windows.Forms.Binding("Location", global::watch.Properties.Settings.Default, "location", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.DoubleBuffered = true;
+            this.Location = global::watch.Properties.Settings.Default.location;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
@@ -59,6 +61,7 @@
             this.Text = "Watch";
             this.TopMost = true;
             this.TransparencyKey = System.Drawing.Color.Transparent;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.ResumeLayout(false);
 

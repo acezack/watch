@@ -9,19 +9,20 @@ namespace watch
     {
         // Indicates whether the border is shown or not.
         static bool borderHidden = false;
+        bool settingsChosen = Properties.Settings.Default.settingsChosen;
 
         // A timer to update the watch every second.
         Timer updateTimer = new Timer();
 
         // Values used to determine color and fontsize.
-        static int fontSize = 40;
-        static Font font = new Font("Lucinda", fontSize);
-        static SolidBrush brush = new SolidBrush(Color.Goldenrod);
-        static int timeFormat = 0;
+        static int fontSize = Properties.Settings.Default.fontSize;
+        static Font font = Properties.Settings.Default.font;
+        static SolidBrush brush = new SolidBrush(Properties.Settings.Default.brushColor);
+        static int timeFormat = Properties.Settings.Default.timeFormat;
         // 0 = Long
         // 1 = Short
-        
-        Point position = new Point(8, 30);
+
+        Point textOffsetOnBorderToggle = new Point(8, 30);
         SizeF windowSize;
 
         // The notification-icon options.
@@ -42,6 +43,8 @@ namespace watch
         public Form1()
         {
             InitializeComponent();
+
+            this.Location = Properties.Settings.Default.location;
 
             // Initializes the form for options.
             formOptions = new FormOptions();
@@ -98,7 +101,11 @@ namespace watch
             // Hooks the clicks and sends the to the window below.
             SetWindowLong(this.Handle, -20, (int)GetWindowLong(this.Handle, -20) | 0x00000020);
 
-            formOptions.Show();
+            if (!settingsChosen)
+            {
+                formOptions.Show();
+                settingsChosen = true;
+            }
         }
 
         // Shows the options-form.
@@ -140,14 +147,14 @@ namespace watch
             {
                 FormBorderStyle = FormBorderStyle.None;
                 menuItemToggleShow.Text = "Show border";
-                position = new Point(8, 30);
+                textOffsetOnBorderToggle = new Point(8, 30);
                 SetWindowLong(this.Handle, -20, (int)GetWindowLong(this.Handle, -20) | 0x00000020);
             }
             else
             {
                 FormBorderStyle = FormBorderStyle.Sizable;
                 menuItemToggleShow.Text = "Hide border";
-                position = new Point(0, 0);
+                textOffsetOnBorderToggle = new Point(0, 0);
             }
         }
 
@@ -159,7 +166,7 @@ namespace watch
                 e.Graphics.DrawString(DateTime.Now.ToLongTimeString(),
                 font,
                 brush,
-                position);
+                textOffsetOnBorderToggle);
                 base.OnPaint(e);
 
                 windowSize = e.Graphics.MeasureString(DateTime.Now.ToLongTimeString(), font);
@@ -169,7 +176,7 @@ namespace watch
                 e.Graphics.DrawString(DateTime.Now.ToShortTimeString(),
                 font,
                 brush,
-                position);
+                textOffsetOnBorderToggle);
                 base.OnPaint(e);
 
                 windowSize = e.Graphics.MeasureString(DateTime.Now.ToShortTimeString(), font);
@@ -203,7 +210,11 @@ namespace watch
         // A public function to change font and fontsize(used in optionsform).
         public static void SetFont(string newFont, int newFontSize)
         {
-            font = new Font(newFont, newFontSize);
+            fontSize = newFontSize;
+            if (newFontSize != 0)
+            {
+                font = new Font(newFont, newFontSize);
+            } 
         }
 
         public static void SetTimeFormat(int newTimeFormat)
@@ -223,6 +234,17 @@ namespace watch
             {
                 borderHidden = true;
             }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.fontSize = fontSize;
+            Properties.Settings.Default.font = font;
+            Properties.Settings.Default.brushColor = brush.Color;
+            Properties.Settings.Default.timeFormat = timeFormat;
+            Properties.Settings.Default.location = this.Location;
+            Properties.Settings.Default.settingsChosen = settingsChosen;
+            Properties.Settings.Default.Save();
         }
     }
 }

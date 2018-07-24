@@ -22,5 +22,77 @@ namespace watch.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("40")]
+        public int fontSize {
+            get {
+                return ((int)(this["fontSize"]));
+            }
+            set {
+                this["fontSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Arial Narrow, 39.75pt")]
+        public global::System.Drawing.Font font {
+            get {
+                return ((global::System.Drawing.Font)(this["font"]));
+            }
+            set {
+                this["font"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Goldenrod")]
+        public global::System.Drawing.Color brushColor {
+            get {
+                return ((global::System.Drawing.Color)(this["brushColor"]));
+            }
+            set {
+                this["brushColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int timeFormat {
+            get {
+                return ((int)(this["timeFormat"]));
+            }
+            set {
+                this["timeFormat"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50, 50")]
+        public global::System.Drawing.Point location {
+            get {
+                return ((global::System.Drawing.Point)(this["location"]));
+            }
+            set {
+                this["location"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool settingsChosen {
+            get {
+                return ((bool)(this["settingsChosen"]));
+            }
+            set {
+                this["settingsChosen"] = value;
+            }
+        }
     }
 }

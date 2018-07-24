@@ -12,17 +12,18 @@ namespace watch
         public FormOptions()
         {
             InitializeComponent();
-
-            // Starting font-value
-            numericFontSize.Value = 40;
             
             Type colorType = typeof(System.Drawing.Color);
             // Adds the colors to the selector.
             // We take only static property to avoid properties like Name, IsSystemColor.
             PropertyInfo[] propInfos = colorType.GetProperties(BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Public);
-            foreach (PropertyInfo propInfo in propInfos)
+            for (int index = 0; index < propInfos.Length; index++)
             {
-                comboBoxColor.Items.AddRange(new object[] {propInfo.Name});
+                comboBoxColor.Items.AddRange(new object[] {propInfos[index].Name});
+                if (propInfos[index].Name == Properties.Settings.Default.brushColor.Name)
+                {
+                    comboBoxColor.SelectedIndex = index;
+                }
             }
 
             InstalledFontCollection fontCollection = new InstalledFontCollection();
@@ -37,13 +38,23 @@ namespace watch
                 
             }
             // Starting font
-            comboBoxFont.SelectedItem = "Mangal";
+            comboBoxFont.SelectedItem = Properties.Settings.Default.font.Name;
 
-            // Starting fontcolor.
-            comboBoxColor.SelectedIndex = 50;
+            // Starting fontColor
+            comboBoxColor.SelectedItem = Properties.Settings.Default.brushColor;
+
+            // Starting fontSize
+            numericFontSize.Value = Properties.Settings.Default.fontSize;
 
             // Starting timeformat
-            radioButtonLongTime.Checked = true;
+            if (Properties.Settings.Default.timeFormat == 0)
+            {
+                radioButtonLongTime.Checked = true;
+            }
+            else
+            {
+                radioButtonShortTime.Checked = true;
+            }
         }
 
         // Calls the SetFont from mainform on indexChanged.
@@ -55,7 +66,7 @@ namespace watch
         // Calls the SetFontSize from mainform on valueChanged.
         private void numericFontSize_ValueChanged(object sender, EventArgs e)
         {
-            if (comboBoxFont.SelectedItem != null)
+            if (comboBoxFont.SelectedItem != null && numericFontSize.Value != 0)
             {
                 Form1.SetFont(comboBoxFont.SelectedItem.ToString(), (int)numericFontSize.Value);
             }            
