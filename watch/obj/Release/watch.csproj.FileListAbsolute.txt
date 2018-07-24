@@ -18,3 +18,13 @@ C:\Users\Adde\Documents\Visual Studio 2013\Projects\watch\watch\obj\Release\watc
 C:\Users\Adde\Documents\Visual Studio 2013\Projects\watch\watch\obj\Release\watch.FormOptions.resources
 C:\Users\Adde\Documents\Visual Studio 2013\Projects\watch\watch\obj\Release\watch.Properties.Resources.resources
 C:\Users\Adde\Documents\Visual Studio 2013\Projects\watch\watch\obj\Release\watch.csproj.GenerateResource.Cache
+F:\programering\watch\watch\bin\Release\watch.exe.config
+F:\programering\watch\watch\obj\Release\watch.exe
+F:\programering\watch\watch\obj\Release\watch.pdb
+F:\programering\watch\watch\bin\Release\watch.exe
+F:\programering\watch\watch\bin\Release\watch.pdb
+F:\programering\watch\watch\obj\Release\watch.csprojResolveAssemblyReference.cache
+F:\programering\watch\watch\obj\Release\watch.Form1.resources
+F:\programering\watch\watch\obj\Release\watch.FormOptions.resources
+F:\programering\watch\watch\obj\Release\watch.Properties.Resources.resources
+F:\programering\watch\watch\obj\Release\watch.csproj.GenerateResource.Cache
