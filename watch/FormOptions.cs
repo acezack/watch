@@ -56,6 +56,9 @@ namespace watch
             {
                 radioButtonShortTime.Checked = true;
             }
+
+            // Starting topmost
+            checkBoxTopmost.Checked = Properties.Settings.Default.topmost;
         }
 
         // Calls the SetFont from mainform on indexChanged.
@@ -122,6 +125,16 @@ namespace watch
             {
                 Form1.SetTimeFormat(1);
             }
+        }
+
+        private void checkBoxTopmost_CheckedChanged(object sender, EventArgs e)
+        {
+            Form1.ToggleTopmost();
+        }
+
+        private void buttonResetPosition_Click(object sender, EventArgs e)
+        {
+            Form1.ResetPosition();
         }
     }
 }

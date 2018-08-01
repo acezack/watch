@@ -94,5 +94,17 @@ namespace watch.Properties {
                 this["settingsChosen"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool topmost {
+            get {
+                return ((bool)(this["topmost"]));
+            }
+            set {
+                this["topmost"] = value;
+            }
+        }
     }
 }

@@ -9,19 +9,33 @@ namespace watch
     {
         // Indicates whether the border is shown or not.
         static bool borderHidden = false;
-        bool settingsChosen = Properties.Settings.Default.settingsChosen;
 
-        // A timer to update the watch every second.
-        Timer updateTimer = new Timer();
+        static bool settingChanged = false;
+
+        // When running the watch for the first time
+        // the optionsform opens as well. 
+        // On subsequent runs the options stay closed.
+        static bool settingsChosen = Properties.Settings.Default.settingsChosen;
 
         // Values used to determine color and fontsize.
         static int fontSize = Properties.Settings.Default.fontSize;
         static Font font = Properties.Settings.Default.font;
         static SolidBrush brush = new SolidBrush(Properties.Settings.Default.brushColor);
-        static int timeFormat = Properties.Settings.Default.timeFormat;
-        // 0 = Long
-        // 1 = Short
 
+        // Option to show in HH:MM:SS format or HH:MM.
+        // 0 = Long(HH:MM:SS)
+        // 1 = Short(HH:MM)
+        static int timeFormat = Properties.Settings.Default.timeFormat;
+
+        // Indicates if watch is topmost or not.
+        static bool topmost = Properties.Settings.Default.topmost;
+
+
+        static bool resetPos = false;
+
+        // When removing the border the text gets moved due to the 
+        // size of the borders. This offset positions the text
+        // to where it is with the border there.
         Point textOffsetOnBorderToggle = new Point(8, 30);
         SizeF windowSize;
 
@@ -34,6 +48,9 @@ namespace watch
         // The window for options.
         FormOptions formOptions;
 
+        // A timer to update the watch every second.
+        Timer updateTimer = new Timer();
+        
         // Used to transfer clicks to the window below it effectively making it clickthrough.
         [DllImport("user32.dll")]
         static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
@@ -57,7 +74,7 @@ namespace watch
             FormBorderStyle = FormBorderStyle.None;
 
             // Starts the timer.
-            updateTimer.Interval = 1000;
+            updateTimer.Interval = 200;
             updateTimer.Enabled = true;
             updateTimer.Tick += updateTimer_Tick;
 
@@ -121,10 +138,12 @@ namespace watch
             if (!borderHidden)
             {
                 borderHidden = true;
+                settingChanged = true;
             }
             else
             {
                 borderHidden = false;
+                settingChanged = true;
             }
         }
 
@@ -143,18 +162,41 @@ namespace watch
             newSize.Height += (int)60;
             this.Size = newSize;
 
-            if (!borderHidden)
+            if (settingChanged)
             {
-                FormBorderStyle = FormBorderStyle.None;
-                menuItemToggleShow.Text = "Show border";
-                textOffsetOnBorderToggle = new Point(8, 30);
-                SetWindowLong(this.Handle, -20, (int)GetWindowLong(this.Handle, -20) | 0x00000020);
-            }
-            else
-            {
-                FormBorderStyle = FormBorderStyle.Sizable;
-                menuItemToggleShow.Text = "Hide border";
-                textOffsetOnBorderToggle = new Point(0, 0);
+                if (!borderHidden)
+                {
+                    FormBorderStyle = FormBorderStyle.None;
+                    menuItemToggleShow.Text = "Show border";
+                    textOffsetOnBorderToggle = new Point(8, 30);
+                    SetWindowLong(this.Handle, -20, (int)GetWindowLong(this.Handle, -20) | 0x00000020);
+                }
+                else
+                {
+                    FormBorderStyle = FormBorderStyle.Sizable;
+                    menuItemToggleShow.Text = "Hide border";
+                    textOffsetOnBorderToggle = new Point(0, 0);
+                }
+
+                if (topmost)
+                {
+                    TopMost = true;
+                }
+                else
+                {
+                    TopMost = false;
+                }
+
+                if (resetPos)
+                {
+                    Location = new Point(
+                        Screen.PrimaryScreen.WorkingArea.Width / 2 - (int)windowSize.Width / 2,
+                        Screen.PrimaryScreen.WorkingArea.Height / 2 - (int)windowSize.Height / 2);
+
+                    resetPos = false;
+                }
+
+                settingChanged = false;
             }
         }
 
@@ -197,6 +239,7 @@ namespace watch
                 if (!borderHidden)
                 {
                     borderHidden = true;
+                    settingChanged = true;
                 }
             }
         }
@@ -229,11 +272,33 @@ namespace watch
             if (borderHidden)
             {
                 borderHidden = false;
+                settingChanged = true;
             }
             else
             {
                 borderHidden = true;
+                settingChanged = true;
             }
+        }
+
+        public static void ToggleTopmost()
+        {
+            if (topmost)
+            {
+                topmost = false;
+                settingChanged = true;
+            }
+            else
+            {
+                topmost = true;
+                settingChanged = true;
+            }
+        }
+
+        public static void ResetPosition()
+        {
+            resetPos = true;
+            settingChanged = true;
         }
 
         // Saves all your settings upon closing
@@ -245,6 +310,7 @@ namespace watch
             Properties.Settings.Default.timeFormat = timeFormat;
             Properties.Settings.Default.location = this.Location;
             Properties.Settings.Default.settingsChosen = settingsChosen;
+            Properties.Settings.Default.topmost = topmost;
             Properties.Settings.Default.Save();
         }
     }
