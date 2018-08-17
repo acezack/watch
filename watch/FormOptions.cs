@@ -136,5 +136,15 @@ namespace watch
         {
             Form1.ResetPosition();
         }
+
+        private void buttonGoToSavedPosition_Click(object sender, EventArgs e)
+        {
+            Form1.GoToSavedPosition();
+        }
+
+        private void buttonSavePosition_Click(object sender, EventArgs e)
+        {
+            Form1.SavePosition();
+        }
     }
 }

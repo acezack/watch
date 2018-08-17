@@ -44,6 +44,8 @@
             this.labelTopmost = new System.Windows.Forms.Label();
             this.checkBoxTopmost = new System.Windows.Forms.CheckBox();
             this.buttonResetPosition = new System.Windows.Forms.Button();
+            this.buttonGoToSavedPosition = new System.Windows.Forms.Button();
+            this.buttonSavePosition = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericFontSize)).BeginInit();
             this.SuspendLayout();
             // 
@@ -200,19 +202,44 @@
             // 
             // buttonResetPosition
             // 
-            this.buttonResetPosition.Location = new System.Drawing.Point(13, 197);
+            this.buttonResetPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonResetPosition.Location = new System.Drawing.Point(59, 235);
             this.buttonResetPosition.Name = "buttonResetPosition";
-            this.buttonResetPosition.Size = new System.Drawing.Size(91, 32);
+            this.buttonResetPosition.Size = new System.Drawing.Size(45, 32);
             this.buttonResetPosition.TabIndex = 159;
             this.buttonResetPosition.Text = "Reset position";
             this.buttonResetPosition.UseVisualStyleBackColor = true;
             this.buttonResetPosition.Click += new System.EventHandler(this.buttonResetPosition_Click);
+            // 
+            // buttonGoToSavedPosition
+            // 
+            this.buttonGoToSavedPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGoToSavedPosition.Location = new System.Drawing.Point(13, 197);
+            this.buttonGoToSavedPosition.Name = "buttonGoToSavedPosition";
+            this.buttonGoToSavedPosition.Size = new System.Drawing.Size(91, 32);
+            this.buttonGoToSavedPosition.TabIndex = 160;
+            this.buttonGoToSavedPosition.Text = "Saved position";
+            this.buttonGoToSavedPosition.UseVisualStyleBackColor = true;
+            this.buttonGoToSavedPosition.Click += new System.EventHandler(this.buttonGoToSavedPosition_Click);
+            // 
+            // buttonSavePosition
+            // 
+            this.buttonSavePosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSavePosition.Location = new System.Drawing.Point(13, 235);
+            this.buttonSavePosition.Name = "buttonSavePosition";
+            this.buttonSavePosition.Size = new System.Drawing.Size(45, 32);
+            this.buttonSavePosition.TabIndex = 161;
+            this.buttonSavePosition.Text = "Save position";
+            this.buttonSavePosition.UseVisualStyleBackColor = true;
+            this.buttonSavePosition.Click += new System.EventHandler(this.buttonSavePosition_Click);
             // 
             // FormOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(213, 272);
+            this.Controls.Add(this.buttonSavePosition);
+            this.Controls.Add(this.buttonGoToSavedPosition);
             this.Controls.Add(this.buttonResetPosition);
             this.Controls.Add(this.checkBoxTopmost);
             this.Controls.Add(this.labelTopmost);
@@ -262,5 +289,7 @@
         private System.Windows.Forms.Label labelTopmost;
         private System.Windows.Forms.CheckBox checkBoxTopmost;
         private System.Windows.Forms.Button buttonResetPosition;
+        private System.Windows.Forms.Button buttonGoToSavedPosition;
+        private System.Windows.Forms.Button buttonSavePosition;
     }
 }

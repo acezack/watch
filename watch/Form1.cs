@@ -32,6 +32,8 @@ namespace watch
 
 
         static bool resetPos = false;
+        static bool goToSaved = false;
+        static bool savePos = false;
 
         // When removing the border the text gets moved due to the 
         // size of the borders. This offset positions the text
@@ -196,6 +198,19 @@ namespace watch
                     resetPos = false;
                 }
 
+                if (goToSaved)
+                {
+                    Location = Properties.Settings.Default.savedLocation;
+                    goToSaved = false;
+                }
+
+                if (savePos)
+                {
+                    Properties.Settings.Default.savedLocation = Location;
+                    Properties.Settings.Default.Save();
+                    savePos = false;
+                }
+
                 settingChanged = false;
             }
         }
@@ -298,6 +313,18 @@ namespace watch
         public static void ResetPosition()
         {
             resetPos = true;
+            settingChanged = true;
+        }
+
+        public static void GoToSavedPosition()
+        {
+            goToSaved = true;
+            settingChanged = true;
+        }
+
+        public static void SavePosition()
+        {
+            savePos = true;
             settingChanged = true;
         }
 

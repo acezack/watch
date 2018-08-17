@@ -106,5 +106,17 @@ namespace watch.Properties {
                 this["topmost"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point savedLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["savedLocation"]));
+            }
+            set {
+                this["savedLocation"] = value;
+            }
+        }
     }
 }
